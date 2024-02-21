@@ -17,18 +17,24 @@ const App = () => {
         <p>React</p>
       </div>
       <div className="add-card__content">
-        <p>제목</p>
-        <input
-          className="add-card__input"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <p>내용</p>
-        <input
-          className="add-card__input"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-        />
+        <div className="add-card__input-container-wrap">
+          <div className="add-card__input-container">
+            <p>제목</p>
+            <input
+              className="add-card__input"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
+          </div>
+          <div className="add-card__input-container">
+            <p>내용</p>
+            <input
+              className="add-card__input"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
+            />
+          </div>
+        </div>
         <button className="add-card__button" onClick={addTodo}>
           추가하기
         </button>

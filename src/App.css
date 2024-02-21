@@ -8,3 +8,23 @@
   display: flex;
   justify-content: space-between;
 }
+
+.add-card__content {
+  height: 60px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ddd;
+}
+
+.add-card__input-container-wrap {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.add-card__input-container {
+  display: flex;
+  align-items: center;
+}
