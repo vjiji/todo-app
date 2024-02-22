@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import TextInput from "./components/TextInput";
 import Todos from "./components/Todos";
+import ActionButton from "./components/ActionButton";
 
 const App = () => {
   const [todos, setTodos] = useState([]);
@@ -57,9 +58,11 @@ const App = () => {
             />
           </div>
         </div>
-        <button className="add-card__button" onClick={addTodo}>
-          추가하기
-        </button>
+        <ActionButton
+          className={"add-card__button"}
+          onClick={addTodo}
+          text="추가하기"
+        />
       </div>
       <hr />
       <Todos

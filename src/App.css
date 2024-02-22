@@ -4,10 +4,14 @@
   margin: 0 auto;
 }
 
+/* header */
+
 .header {
   display: flex;
   justify-content: space-between;
 }
+
+/* add-card */
 
 .add-card__content {
   height: 60px;
@@ -35,6 +39,27 @@
   border: none;
   border-radius: 4px;
 }
+
+.action-button {
+  width: 100px;
+  height: 28px;
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.add-card__button {
+  background: #00bfff;
+  border: none;
+
+  &:hover {
+    border: 1px solid #444;
+  }
+}
+
+/* card-list */
 
 .card-list {
   min-height: 148px;
@@ -88,4 +113,36 @@
 
 .card-list__card--completed {
   border: 2px solid gray;
+}
+
+.card-list__button-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-list__button--complete {
+  border: 1px solid #00ab41;
+
+  &:hover {
+    background-color: #00ab41;
+    color: #fff;
+  }
+}
+
+.card-list__button--cancel {
+  border: 1px solid #fbb117;
+
+  &:hover {
+    background-color: #fbb117;
+    color: #fff;
+  }
+}
+
+.card-list__button--delete {
+  border: 1px solid #9f9f9f;
+
+  &:hover {
+    background-color: #9f9f9f;
+    color: #fff;
+  }
 }
