@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import TextInput from "./components/TextInput";
+import Todos from "./components/Todos";
 
 const App = () => {
   const [todos, setTodos] = useState([]);
@@ -61,37 +62,18 @@ const App = () => {
         </button>
       </div>
       <hr />
-      {/* Todo-list */}
-      <p>Working</p>
-      {todos
-        .filter(({ completed }) => !completed)
-        .map(({ title, content, id }, i) => (
-          <div className="card" key={title + i}>
-            <p>{title}</p>
-            <p>{content}</p>
-            <button id={id} onClick={completeTodo}>
-              완료
-            </button>
-            <button id={id} onClick={deleteTodo}>
-              삭제
-            </button>
-          </div>
-        ))}
-
-      <p>Done</p>
-      {todos
-        .filter(({ completed }) => completed)
-        .map(({ title, content, id }, i) => (
-          <div className="card" key={title + i}>
-            <p>{title}</p>
-            <p>{content}</p>
-            <button id={id} onClick={completeTodo}>
-              완료
-            </button>
-            <button>삭제</button>
-          </div>
-        ))}
-      {/* Todo-list */}
+      <Todos
+        category={"Working"}
+        todos={todos.filter(({ completed }) => !completed)}
+        completeTodo={completeTodo}
+        deleteTodo={deleteTodo}
+      />
+      <Todos
+        category={"Done"}
+        todos={todos.filter(({ completed }) => completed)}
+        completeTodo={completeTodo}
+        deleteTodo={deleteTodo}
+      />
     </div>
   );
 };
