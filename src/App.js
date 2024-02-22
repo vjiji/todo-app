@@ -25,7 +25,11 @@ const App = () => {
       })
     );
   };
-  console.log(todos);
+
+  const deleteTodo = (e) => {
+    const currentTodoId = e.currentTarget.id;
+    setTodos(todos.filter(({ id }) => id !== currentTodoId));
+  };
 
   return (
     <div className="app-container">
@@ -68,7 +72,9 @@ const App = () => {
             <button id={id} onClick={completeTodo}>
               완료
             </button>
-            <button>삭제</button>
+            <button id={id} onClick={deleteTodo}>
+              삭제
+            </button>
           </div>
         ))}
 
