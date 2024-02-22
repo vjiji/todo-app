@@ -21,7 +21,7 @@ const App = () => {
     setTodos(
       todos.map((todo) => {
         if (todo.id === currentTodoId) {
-          return { ...todo, completed: true };
+          return { ...todo, completed: !todo.completed };
         }
         return todo;
       })

@@ -21,8 +21,8 @@ const Todos = ({ isCompleted, todos, completeTodo, deleteTodo }) => {
               isCompleted && "card-list__card--completed"
             }`}
             todo={todo}
-            completeTodo={isCompleted ? () => {} : completeTodo}
-            deleteTodo={isCompleted ? () => {} : deleteTodo}
+            completeTodo={completeTodo}
+            deleteTodo={deleteTodo}
           />
         ))}
       </div>
