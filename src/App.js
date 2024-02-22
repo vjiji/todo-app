@@ -14,6 +14,8 @@ const App = () => {
       ...todos,
       { id: String(todos.length), title, content, completed: false },
     ]);
+    setTitle("");
+    setContent("");
   };
 
   const completeTodo = (e) => {
