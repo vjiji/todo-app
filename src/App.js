@@ -8,8 +8,24 @@ const App = () => {
   const [content, setContent] = useState("");
 
   const addTodo = () => {
-    setTodos([...todos, { title, content, completed: false }]);
+    setTodos([
+      ...todos,
+      { id: String(todos.length), title, content, completed: false },
+    ]);
   };
+
+  const completeTodo = (e) => {
+    const currentTodoId = e.currentTarget.id;
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === currentTodoId) {
+          return { ...todo, completed: true };
+        }
+        return todo;
+      })
+    );
+  };
+  console.log(todos);
 
   return (
     <div className="app-container">
@@ -43,11 +59,13 @@ const App = () => {
       <hr />
       {/* Todo-list */}
       <p>Working</p>
-      {todos.map((todo, i) => (
-        <div className="card" key={todo + i}>
-          <p>{todo.title}</p>
-          <p>{todo.content}</p>
-          <button>완료</button>
+      {todos.map(({ title, content, id }, i) => (
+        <div className="card" key={title + i}>
+          <p>{title}</p>
+          <p>{content}</p>
+          <button id={id} onClick={completeTodo}>
+            완료
+          </button>
           <button>삭제</button>
         </div>
       ))}
