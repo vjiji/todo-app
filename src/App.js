@@ -3,6 +3,7 @@ import "./App.css";
 import TextInput from "./components/TextInput";
 import Todos from "./components/Todos";
 import ActionButton from "./components/ActionButton";
+import { isNonEmptyText } from "./utils/isNonEmptyText";
 
 const App = () => {
   const [todos, setTodos] = useState([]);
@@ -10,6 +11,10 @@ const App = () => {
   const [content, setContent] = useState("");
 
   const addTodo = () => {
+    if (!(isNonEmptyText(title) && isNonEmptyText(content))) {
+      window.alert("제목과 내용을 모두 작성해주세요!");
+      return;
+    }
     setTodos([
       ...todos,
       { id: String(todos.length), title, content, completed: false },
