@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./App.css";
-import TextInput from "./components/TextInput";
-import Todos from "./components/Todos";
-import ActionButton from "./components/ActionButton";
+import TextInput from "./components/common/TextInput";
+import Todos from "./components/features/Todos";
+import ActionButton from "./components/common/ActionButton";
 import { isNonEmptyText } from "./utils/isNonEmptyText";
 
 const App = () => {

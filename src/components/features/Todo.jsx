@@ -1,5 +1,5 @@
 import React from "react";
-import ActionButton from "./ActionButton";
+import ActionButton from "../common/ActionButton";
 
 const Todo = ({ className, todo, completeTodo, deleteTodo }) => {
   const { id, title, content, completed } = todo;
