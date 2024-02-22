@@ -28,3 +28,10 @@
   display: flex;
   align-items: center;
 }
+
+.add-card__input {
+  height: 24px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 4px;
+}

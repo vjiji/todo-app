@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import TextInput from "./components/TextInput";
 
 const App = () => {
   const [todos, setTodos] = useState([]);
@@ -20,7 +21,7 @@ const App = () => {
         <div className="add-card__input-container-wrap">
           <div className="add-card__input-container">
             <p>제목</p>
-            <input
+            <TextInput
               className="add-card__input"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
@@ -28,7 +29,7 @@ const App = () => {
           </div>
           <div className="add-card__input-container">
             <p>내용</p>
-            <input
+            <TextInput
               className="add-card__input"
               value={content}
               onChange={(e) => setContent(e.target.value)}
