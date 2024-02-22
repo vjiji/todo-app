@@ -7,8 +7,10 @@
 /* header */
 
 .header {
+  margin: 0 10px;
   display: flex;
   justify-content: space-between;
+  font-weight: 600;
 }
 
 /* add-card */
@@ -34,6 +36,7 @@
 }
 
 .add-card__input {
+  width: 220px;
   height: 24px;
   margin-left: 10px;
   border: none;
@@ -62,7 +65,7 @@
 /* card-list */
 
 .card-list {
-  min-height: 148px;
+  min-height: 190px;
   margin: 0 10px;
 }
 
