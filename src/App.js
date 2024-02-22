@@ -59,24 +59,32 @@ const App = () => {
       <hr />
       {/* Todo-list */}
       <p>Working</p>
-      {todos.map(({ title, content, id }, i) => (
-        <div className="card" key={title + i}>
-          <p>{title}</p>
-          <p>{content}</p>
-          <button id={id} onClick={completeTodo}>
-            완료
-          </button>
-          <button>삭제</button>
-        </div>
-      ))}
+      {todos
+        .filter(({ completed }) => !completed)
+        .map(({ title, content, id }, i) => (
+          <div className="card" key={title + i}>
+            <p>{title}</p>
+            <p>{content}</p>
+            <button id={id} onClick={completeTodo}>
+              완료
+            </button>
+            <button>삭제</button>
+          </div>
+        ))}
 
       <p>Done</p>
-      <div className="card">
-        <p>제목</p>
-        <p>내용</p>
-        <button>완료</button>
-        <button>삭제</button>
-      </div>
+      {todos
+        .filter(({ completed }) => completed)
+        .map(({ title, content, id }, i) => (
+          <div className="card" key={title + i}>
+            <p>{title}</p>
+            <p>{content}</p>
+            <button id={id} onClick={completeTodo}>
+              완료
+            </button>
+            <button>삭제</button>
+          </div>
+        ))}
       {/* Todo-list */}
     </div>
   );
