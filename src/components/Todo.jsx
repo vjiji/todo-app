@@ -3,7 +3,7 @@ import React from "react";
 const Todo = ({ className, todo, completeTodo, deleteTodo }) => {
   const { id, title, content } = todo;
   return (
-    <div className={className} key={title + id}>
+    <div className={className}>
       <p>{title}</p>
       <p>{content}</p>
       <button id={id} onClick={completeTodo}>

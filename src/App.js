@@ -63,13 +63,12 @@ const App = () => {
       </div>
       <hr />
       <Todos
-        category={"Working"}
         todos={todos.filter(({ completed }) => !completed)}
         completeTodo={completeTodo}
         deleteTodo={deleteTodo}
       />
       <Todos
-        category={"Done"}
+        isCompleted
         todos={todos.filter(({ completed }) => completed)}
         completeTodo={completeTodo}
         deleteTodo={deleteTodo}

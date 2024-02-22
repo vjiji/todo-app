@@ -1,16 +1,19 @@
 import React from "react";
 import Todo from "./Todo";
 
-const Todos = ({ category, todos, completeTodo, deleteTodo }) => {
+const Todos = ({ isCompleted, todos, completeTodo, deleteTodo }) => {
+  const title = isCompleted ? "Done" : "Working";
+
   return (
     <>
-      <p>{category}</p>
+      <p>{title}</p>
       {todos.map((todo) => (
         <Todo
+          key={todo.title + todo.id}
           className={"card"}
           todo={todo}
-          completeTodo={completeTodo}
-          deleteTodo={deleteTodo}
+          completeTodo={isCompleted ? () => {} : completeTodo}
+          deleteTodo={isCompleted ? () => {} : deleteTodo}
         />
       ))}
     </>
