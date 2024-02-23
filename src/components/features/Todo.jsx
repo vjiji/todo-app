@@ -11,13 +11,13 @@ const Todo = ({ className, todo, completeTodo, deleteTodo }) => {
         <ActionButton
           className={`card-list__button--${completed ? "cancel" : "complete"}`}
           id={id}
-          onClick={completeTodo}
+          onClick={() => completeTodo(id)}
           text={completed ? "취소하기" : "완료하기"}
         />
         <ActionButton
           className={"card-list__button--delete"}
           id={id}
-          onClick={deleteTodo}
+          onClick={() => deleteTodo(id)}
           text="삭제하기"
         />
       </div>
