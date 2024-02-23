@@ -3,6 +3,7 @@ import "./App.css";
 import AddTodo from "./components/features/todo/AddTodo";
 import RenderTodos from "./components/features/todo/RenderTodos";
 import { isNonEmptyText } from "./utils/isNonEmptyText";
+import Header from "./components/layout/Header";
 
 const App = () => {
   const [todos, setTodos] = useState([]);
@@ -39,19 +40,14 @@ const App = () => {
 
   return (
     <div className="app-container">
-      <div className="header">
-        <p>To Do List</p>
-        <p>React</p>
-      </div>
-      <div className="add-card__content">
-        <AddTodo
-          title={title}
-          content={content}
-          setTitle={setTitle}
-          setContent={setContent}
-          addTodo={addTodo}
-        />
-      </div>
+      <Header />
+      <AddTodo
+        title={title}
+        content={content}
+        setTitle={setTitle}
+        setContent={setContent}
+        addTodo={addTodo}
+      />
       <hr />
       <RenderTodos
         todos={todos.filter(({ completed }) => !completed)}
