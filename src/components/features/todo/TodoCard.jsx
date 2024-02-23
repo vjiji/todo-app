@@ -1,4 +1,3 @@
-import React from "react";
 import ActionButton from "../../common/ActionButton";
 
 const TodoCard = ({ className, todo, completeTodo, deleteTodo }) => {

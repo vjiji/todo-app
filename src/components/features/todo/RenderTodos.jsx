@@ -1,4 +1,3 @@
-import React from "react";
 import TodoCard from "./TodoCard";
 
 const RenderTodos = ({ isCompleted, todos, completeTodo, deleteTodo }) => {

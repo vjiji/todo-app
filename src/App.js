@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import "./App.css";
+import { useState } from "react";
+import Header from "./components/layout/Header";
 import AddTodo from "./components/features/todo/AddTodo";
 import RenderTodos from "./components/features/todo/RenderTodos";
 import { isNonEmptyText } from "./utils/isNonEmptyText";
-import Header from "./components/layout/Header";
+import "./App.css";
 
 const App = () => {
   const [todos, setTodos] = useState([]);

@@ -1,4 +1,3 @@
-import React from "react";
 import TextInput from "../../common/TextInput";
 import ActionButton from "../../common/ActionButton";
 
