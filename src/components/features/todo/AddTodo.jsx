@@ -3,7 +3,7 @@ import TextInput from "../../common/TextInput";
 import ActionButton from "../../common/ActionButton";
 import { isNonEmptyText } from "../../../utils/isNonEmptyText";
 
-const AddTodo = ({ todos, setTodos }) => {
+const useAddTodo = ({ todos, setTodos }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
@@ -19,6 +19,14 @@ const AddTodo = ({ todos, setTodos }) => {
     setTitle("");
     setContent("");
   };
+  return { title, content, setTitle, setContent, addTodo };
+};
+
+const AddTodo = ({ todos, setTodos }) => {
+  const { title, content, setContent, setTitle, addTodo } = useAddTodo({
+    todos,
+    setTodos,
+  });
 
   return (
     <>
