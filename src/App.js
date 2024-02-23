@@ -23,11 +23,10 @@ const App = () => {
     setContent("");
   };
 
-  const completeTodo = (e) => {
-    const currentTodoId = e.currentTarget.id;
+  const completeTodo = (targetId) => {
     setTodos(
       todos.map((todo) => {
-        if (todo.id === currentTodoId) {
+        if (todo.id === targetId) {
           return { ...todo, completed: !todo.completed };
         }
         return todo;
@@ -35,9 +34,8 @@ const App = () => {
     );
   };
 
-  const deleteTodo = (e) => {
-    const currentTodoId = e.currentTarget.id;
-    setTodos(todos.filter(({ id }) => id !== currentTodoId));
+  const deleteTodo = (targetId) => {
+    setTodos(todos.filter(({ id }) => id !== targetId));
   };
 
   return (
