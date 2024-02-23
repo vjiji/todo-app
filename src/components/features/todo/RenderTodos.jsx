@@ -1,7 +1,22 @@
 import TodoCard from "./TodoCard";
 
-const RenderTodos = ({ isCompleted, todos, completeTodo, deleteTodo }) => {
+const RenderTodos = ({ isCompleted, todos, setTodos }) => {
   const title = isCompleted ? "Done" : "Working";
+
+  const updateTodo = (targetId) => {
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === targetId) {
+          return { ...todo, completed: !todo.completed };
+        }
+        return todo;
+      })
+    );
+  };
+
+  const deleteTodo = (targetId) => {
+    setTodos(todos.filter(({ id }) => id !== targetId));
+  };
 
   return (
     <div className="card-list">
@@ -13,17 +28,19 @@ const RenderTodos = ({ isCompleted, todos, completeTodo, deleteTodo }) => {
         {title}
       </p>
       <div className="card-list__card-wrap">
-        {todos.map((todo) => (
-          <TodoCard
-            key={todo.title + todo.id}
-            className={`card-list__card ${
-              isCompleted && "card-list__card--completed"
-            }`}
-            todo={todo}
-            completeTodo={completeTodo}
-            deleteTodo={deleteTodo}
-          />
-        ))}
+        {todos
+          .filter(({ completed }) => (isCompleted ? completed : !completed))
+          .map((todo) => (
+            <TodoCard
+              key={todo.title + todo.id}
+              className={`card-list__card ${
+                isCompleted && "card-list__card--completed"
+              }`}
+              todo={todo}
+              updateTodo={updateTodo}
+              deleteTodo={deleteTodo}
+            />
+          ))}
       </div>
     </div>
   );
