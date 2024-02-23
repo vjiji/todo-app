@@ -1,7 +1,7 @@
 import React from "react";
-import Todo from "./Todo";
+import TodoCard from "./TodoCard";
 
-const Todos = ({ isCompleted, todos, completeTodo, deleteTodo }) => {
+const RenderTodos = ({ isCompleted, todos, completeTodo, deleteTodo }) => {
   const title = isCompleted ? "Done" : "Working";
 
   return (
@@ -15,7 +15,7 @@ const Todos = ({ isCompleted, todos, completeTodo, deleteTodo }) => {
       </p>
       <div className="card-list__card-wrap">
         {todos.map((todo) => (
-          <Todo
+          <TodoCard
             key={todo.title + todo.id}
             className={`card-list__card ${
               isCompleted && "card-list__card--completed"
@@ -30,4 +30,4 @@ const Todos = ({ isCompleted, todos, completeTodo, deleteTodo }) => {
   );
 };
 
-export default Todos;
+export default RenderTodos;

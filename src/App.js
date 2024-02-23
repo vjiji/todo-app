@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import TextInput from "./components/common/TextInput";
-import Todos from "./components/features/Todos";
+import RenderTodos from "./components/features/todo/RenderTodos";
 import ActionButton from "./components/common/ActionButton";
 import { isNonEmptyText } from "./utils/isNonEmptyText";
 
@@ -70,12 +70,12 @@ const App = () => {
         />
       </div>
       <hr />
-      <Todos
+      <RenderTodos
         todos={todos.filter(({ completed }) => !completed)}
         completeTodo={completeTodo}
         deleteTodo={deleteTodo}
       />
-      <Todos
+      <RenderTodos
         isCompleted
         todos={todos.filter(({ completed }) => completed)}
         completeTodo={completeTodo}

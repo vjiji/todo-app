@@ -1,7 +1,7 @@
 import React from "react";
-import ActionButton from "../common/ActionButton";
+import ActionButton from "../../common/ActionButton";
 
-const Todo = ({ className, todo, completeTodo, deleteTodo }) => {
+const TodoCard = ({ className, todo, completeTodo, deleteTodo }) => {
   const { id, title, content, completed } = todo;
   return (
     <div className={className}>
@@ -25,4 +25,4 @@ const Todo = ({ className, todo, completeTodo, deleteTodo }) => {
   );
 };
 
-export default Todo;
+export default TodoCard;
