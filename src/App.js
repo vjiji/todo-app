@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
-import TextInput from "./components/common/TextInput";
+import AddTodo from "./components/features/todo/AddTodo";
 import RenderTodos from "./components/features/todo/RenderTodos";
-import ActionButton from "./components/common/ActionButton";
 import { isNonEmptyText } from "./utils/isNonEmptyText";
 
 const App = () => {
@@ -45,28 +44,12 @@ const App = () => {
         <p>React</p>
       </div>
       <div className="add-card__content">
-        <div className="add-card__input-container-wrap">
-          <div className="add-card__input-container">
-            <p>제목</p>
-            <TextInput
-              className="add-card__input"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-          </div>
-          <div className="add-card__input-container">
-            <p>내용</p>
-            <TextInput
-              className="add-card__input"
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-            />
-          </div>
-        </div>
-        <ActionButton
-          className={"add-card__button"}
-          onClick={addTodo}
-          text="추가하기"
+        <AddTodo
+          title={title}
+          content={content}
+          setTitle={setTitle}
+          setContent={setContent}
+          addTodo={addTodo}
         />
       </div>
       <hr />
