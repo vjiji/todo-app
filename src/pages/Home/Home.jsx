@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { AddTodo } from "../components/features/todo/AddTodo";
-import { RenderTodos } from "../components/features/todo/RenderTodos";
+import AddTodo from "../../components/features/todo/AddTodo";
+import RenderTodos from "../../components/features/todo/RenderTodos";
 
-export const Main = () => {
+const Home = () => {
   const [todos, setTodos] = useState([]);
 
   return (
@@ -14,3 +14,5 @@ export const Main = () => {
     </>
   );
 };
+
+export default Home;

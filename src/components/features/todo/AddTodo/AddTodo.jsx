@@ -2,7 +2,7 @@ import TextInput from "../../../common/TextInput";
 import ActionButton from "../../../common/ActionButton";
 import { useAddTodo } from "./useAddTodo";
 
-export const AddTodo = ({ todos, setTodos }) => {
+const AddTodo = ({ todos, setTodos }) => {
   const { title, content, setContent, setTitle, handleAddTodoButtonClick } =
     useAddTodo({
       todos,
@@ -39,3 +39,5 @@ export const AddTodo = ({ todos, setTodos }) => {
     </>
   );
 };
+
+export default AddTodo;

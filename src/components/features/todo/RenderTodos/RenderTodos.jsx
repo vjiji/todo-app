@@ -1,7 +1,7 @@
-import { TodoCard } from "../TodoCard";
+import TodoCard from "../TodoCard";
 import { useRenderTodos } from "./useRenderTodos";
 
-export const RenderTodos = ({ isCompleted, todos, setTodos }) => {
+const RenderTodos = ({ isCompleted, todos, setTodos }) => {
   const { title, handleUpdateTodoButtonClick, handleDeleteTodoButtonClick } =
     useRenderTodos({
       isCompleted,
@@ -36,3 +36,5 @@ export const RenderTodos = ({ isCompleted, todos, setTodos }) => {
     </div>
   );
 };
+
+export default RenderTodos;

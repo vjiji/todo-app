@@ -1,1 +1,3 @@
-export { RenderTodos } from "./RenderTodos";
+import RenderTodos from "./RenderTodos";
+
+export default RenderTodos;

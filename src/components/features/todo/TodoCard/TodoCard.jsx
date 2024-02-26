@@ -1,6 +1,6 @@
 import ActionButton from "../../../common/ActionButton";
 
-export const TodoCard = ({
+const TodoCard = ({
   className,
   todo,
   handleUpdateTodoButtonClick,
@@ -28,3 +28,5 @@ export const TodoCard = ({
     </div>
   );
 };
+
+export default TodoCard;

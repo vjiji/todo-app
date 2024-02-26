@@ -1,1 +1,3 @@
-export { TodoCard } from "./TodoCard";
+import TodoCard from "./TodoCard";
+
+export default TodoCard;

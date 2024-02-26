@@ -1,1 +1,3 @@
-export { AddTodo } from "./AddTodo";
+import AddTodo from "./AddTodo";
+
+export default AddTodo;
