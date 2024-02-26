@@ -1,5 +1,5 @@
 export const useRenderTodos = ({ isCompleted, todos, setTodos }) => {
-  const updateTodo = (e) => {
+  const handleUpdateTodoButtonClick = (e) => {
     setTodos(
       todos.map((todo) => {
         if (todo.id === e.currentTarget.id) {
@@ -10,13 +10,13 @@ export const useRenderTodos = ({ isCompleted, todos, setTodos }) => {
     );
   };
 
-  const deleteTodo = (e) => {
+  const handleDeleteTodoButtonClick = (e) => {
     setTodos(todos.filter(({ id }) => id !== e.currentTarget.id));
   };
 
   return {
     title: isCompleted ? "Done" : "Working",
-    updateTodo,
-    deleteTodo,
+    handleUpdateTodoButtonClick,
+    handleDeleteTodoButtonClick,
   };
 };

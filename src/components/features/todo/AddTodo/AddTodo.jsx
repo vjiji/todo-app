@@ -3,10 +3,11 @@ import ActionButton from "../../../common/ActionButton";
 import { useAddTodo } from "./useAddTodo";
 
 export const AddTodo = ({ todos, setTodos }) => {
-  const { title, content, setContent, setTitle, addTodo } = useAddTodo({
-    todos,
-    setTodos,
-  });
+  const { title, content, setContent, setTitle, handleAddTodoButtonClick } =
+    useAddTodo({
+      todos,
+      setTodos,
+    });
 
   return (
     <>
@@ -31,7 +32,7 @@ export const AddTodo = ({ todos, setTodos }) => {
         </div>
         <ActionButton
           className={"add-card__button"}
-          onClick={addTodo}
+          onClick={handleAddTodoButtonClick}
           text="추가하기"
         />
       </div>

@@ -2,11 +2,12 @@ import { TodoCard } from "../TodoCard";
 import { useRenderTodos } from "./useRenderTodos";
 
 export const RenderTodos = ({ isCompleted, todos, setTodos }) => {
-  const { title, updateTodo, deleteTodo } = useRenderTodos({
-    isCompleted,
-    todos,
-    setTodos,
-  });
+  const { title, handleUpdateTodoButtonClick, handleDeleteTodoButtonClick } =
+    useRenderTodos({
+      isCompleted,
+      todos,
+      setTodos,
+    });
 
   return (
     <div className="card-list">
@@ -27,8 +28,8 @@ export const RenderTodos = ({ isCompleted, todos, setTodos }) => {
                 isCompleted && "card-list__card--completed"
               }`}
               todo={todo}
-              updateTodo={updateTodo}
-              deleteTodo={deleteTodo}
+              handleUpdateTodoButtonClick={handleUpdateTodoButtonClick}
+              handleDeleteTodoButtonClick={handleDeleteTodoButtonClick}
             />
           ))}
       </div>
