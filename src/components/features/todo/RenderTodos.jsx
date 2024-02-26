@@ -1,12 +1,10 @@
 import TodoCard from "./TodoCard";
 
-const RenderTodos = ({ isCompleted, todos, setTodos }) => {
-  const title = isCompleted ? "Done" : "Working";
-
-  const updateTodo = (targetId) => {
+const useRenderTodos = ({ isCompleted, todos, setTodos }) => {
+  const updateTodo = (e) => {
     setTodos(
       todos.map((todo) => {
-        if (todo.id === targetId) {
+        if (todo.id === e.currentTarget.id) {
           return { ...todo, completed: !todo.completed };
         }
         return todo;
@@ -14,9 +12,23 @@ const RenderTodos = ({ isCompleted, todos, setTodos }) => {
     );
   };
 
-  const deleteTodo = (targetId) => {
-    setTodos(todos.filter(({ id }) => id !== targetId));
+  const deleteTodo = (e) => {
+    setTodos(todos.filter(({ id }) => id !== e.currentTarget.id));
   };
+
+  return {
+    title: isCompleted ? "Done" : "Working",
+    updateTodo,
+    deleteTodo,
+  };
+};
+
+const RenderTodos = ({ isCompleted, todos, setTodos }) => {
+  const { title, updateTodo, deleteTodo } = useRenderTodos({
+    isCompleted,
+    todos,
+    setTodos,
+  });
 
   return (
     <div className="card-list">
