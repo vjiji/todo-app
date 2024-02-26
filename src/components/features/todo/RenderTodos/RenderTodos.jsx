@@ -1,22 +1,13 @@
-import TodoCard from "./TodoCard";
+import { TodoCard } from "../TodoCard";
+import { useRenderTodos } from "./useRenderTodos";
 
-const RenderTodos = ({ isCompleted, todos, setTodos }) => {
-  const title = isCompleted ? "Done" : "Working";
-
-  const updateTodo = (targetId) => {
-    setTodos(
-      todos.map((todo) => {
-        if (todo.id === targetId) {
-          return { ...todo, completed: !todo.completed };
-        }
-        return todo;
-      })
-    );
-  };
-
-  const deleteTodo = (targetId) => {
-    setTodos(todos.filter(({ id }) => id !== targetId));
-  };
+export const RenderTodos = ({ isCompleted, todos, setTodos }) => {
+  const { title, handleUpdateTodoButtonClick, handleDeleteTodoButtonClick } =
+    useRenderTodos({
+      isCompleted,
+      todos,
+      setTodos,
+    });
 
   return (
     <div className="card-list">
@@ -37,13 +28,11 @@ const RenderTodos = ({ isCompleted, todos, setTodos }) => {
                 isCompleted && "card-list__card--completed"
               }`}
               todo={todo}
-              updateTodo={updateTodo}
-              deleteTodo={deleteTodo}
+              handleUpdateTodoButtonClick={handleUpdateTodoButtonClick}
+              handleDeleteTodoButtonClick={handleDeleteTodoButtonClick}
             />
           ))}
       </div>
     </div>
   );
 };
-
-export default RenderTodos;

@@ -1,6 +1,11 @@
-import ActionButton from "../../common/ActionButton";
+import ActionButton from "../../../common/ActionButton";
 
-const TodoCard = ({ className, todo, updateTodo, deleteTodo }) => {
+export const TodoCard = ({
+  className,
+  todo,
+  handleUpdateTodoButtonClick,
+  handleDeleteTodoButtonClick,
+}) => {
   const { id, title, content, completed } = todo;
   return (
     <div className={className}>
@@ -10,18 +15,16 @@ const TodoCard = ({ className, todo, updateTodo, deleteTodo }) => {
         <ActionButton
           className={`card-list__button--${completed ? "cancel" : "complete"}`}
           id={id}
-          onClick={() => updateTodo(id)}
+          onClick={handleUpdateTodoButtonClick}
           text={completed ? "취소하기" : "완료하기"}
         />
         <ActionButton
           className={"card-list__button--delete"}
           id={id}
-          onClick={() => deleteTodo(id)}
+          onClick={handleDeleteTodoButtonClick}
           text="삭제하기"
         />
       </div>
     </div>
   );
 };
-
-export default TodoCard;

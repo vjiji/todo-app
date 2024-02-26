@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Header from "./components/layout/Header";
-import AddTodo from "./components/features/todo/AddTodo";
-import RenderTodos from "./components/features/todo/RenderTodos";
+import { AddTodo } from "./components/features/todo/AddTodo";
+import { RenderTodos } from "./components/features/todo/RenderTodos";
 import "./App.css";
 
 const App = () => {
