@@ -1,6 +1,6 @@
-import ActionButton from "../../common/ActionButton";
+import ActionButton from "../../../common/ActionButton";
 
-const TodoCard = ({ className, todo, updateTodo, deleteTodo }) => {
+export const TodoCard = ({ className, todo, updateTodo, deleteTodo }) => {
   const { id, title, content, completed } = todo;
   return (
     <div className={className}>
@@ -23,5 +23,3 @@ const TodoCard = ({ className, todo, updateTodo, deleteTodo }) => {
     </div>
   );
 };
-
-export default TodoCard;

@@ -1,28 +1,8 @@
-import { useState } from "react";
-import TextInput from "../../common/TextInput";
-import ActionButton from "../../common/ActionButton";
-import { isNonEmptyText } from "../../../utils/isNonEmptyText";
+import TextInput from "../../../common/TextInput";
+import ActionButton from "../../../common/ActionButton";
+import { useAddTodo } from "./useAddTodo";
 
-const useAddTodo = ({ todos, setTodos }) => {
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
-
-  const addTodo = () => {
-    if (!(isNonEmptyText(title) && isNonEmptyText(content))) {
-      window.alert("제목과 내용을 모두 작성해주세요!");
-      return;
-    }
-    setTodos([
-      ...todos,
-      { id: String(todos.length), title, content, completed: false },
-    ]);
-    setTitle("");
-    setContent("");
-  };
-  return { title, content, setTitle, setContent, addTodo };
-};
-
-const AddTodo = ({ todos, setTodos }) => {
+export const AddTodo = ({ todos, setTodos }) => {
   const { title, content, setContent, setTitle, addTodo } = useAddTodo({
     todos,
     setTodos,
@@ -58,5 +38,3 @@ const AddTodo = ({ todos, setTodos }) => {
     </>
   );
 };
-
-export default AddTodo;
