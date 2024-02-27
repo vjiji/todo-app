@@ -1,4 +1,9 @@
+import { useSelector } from "react-redux";
+
 export const useRenderTodos = ({ isCompleted, todos, setTodos }) => {
+  const test = useSelector((state) => state.todos);
+  console.log(test);
+
   const handleUpdateTodoButtonClick = (e) => {
     setTodos(
       todos.map((todo) => {
