@@ -1,13 +1,19 @@
-const READ_TODOS = "READ_TODOS";
 const ADD_TODOS = "ADD_TODOS";
 const UPDATE_TODOS = "UPDATE_TODOS";
+const DELETE_TODOS = "DELETE_TODOS";
 
-export const addTodos = (payload) => {
-  return { type: ADD_TODOS, payload: payload };
+export const addTodos = (todo) => {
+  return { type: ADD_TODOS, payload: todo };
 };
 
-export const updateTodos = (payload) => {
-  return { type: UPDATE_TODOS, payload: payload };
+export const updateTodos = (todo) => {
+  console.log(todo, "redux updateTodo action");
+  return { type: UPDATE_TODOS, payload: todo };
+};
+
+export const deleteTodos = (todoId) => {
+  console.log(todoId, "redux delete todo action");
+  return { type: DELETE_TODOS, payload: todoId };
 };
 
 const initialState = {
@@ -31,6 +37,11 @@ const todos = (state = initialState, action) => {
             todo.id === action.payload.id ? action.payload : todo
           ),
         ],
+      };
+
+    case DELETE_TODOS:
+      return {
+        todos: state.todos.filter(({ id }) => id !== action.payload),
       };
 
     default:

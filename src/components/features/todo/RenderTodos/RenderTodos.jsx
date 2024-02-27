@@ -1,7 +1,7 @@
 import TodoCard from "../TodoCard";
 import { useRenderTodos } from "./useRenderTodos";
 
-const RenderTodos = ({ isCompleted, setTodos }) => {
+const RenderTodos = ({ isCompleted }) => {
   const {
     title,
     todos,
@@ -9,7 +9,6 @@ const RenderTodos = ({ isCompleted, setTodos }) => {
     handleDeleteTodoButtonClick,
   } = useRenderTodos({
     isCompleted,
-    setTodos,
   });
 
   return (
