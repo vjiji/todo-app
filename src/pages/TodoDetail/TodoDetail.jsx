@@ -1,17 +1,14 @@
-import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
 import { styled } from "styled-components";
+import useTodoDetail from "./useTodoDetail";
 
 const TodoDetail = () => {
-  const currentId = useParams().id;
-  const { todos } = useSelector((state) => state.todos);
-  const todo = todos.filter(({ id }) => id === currentId)[0];
+  const { todo, handleButtonClick } = useTodoDetail();
 
   return (
     <Container>
       <Head>
         <p>id: {todo.id}</p>
-        <button>뒤로가기</button>
+        <button onClick={handleButtonClick}>뒤로가기</button>
       </Head>
       <Content>
         <Title>{todo.title}</Title>
