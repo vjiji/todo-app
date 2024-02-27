@@ -1,14 +1,14 @@
 import { useParams } from "react-router-dom";
 
-const Todo = () => {
+const TodoDetail = () => {
   const param = useParams();
   const todoId = param.id;
   return (
     <>
-      <div>Todo</div>
+      <div>TodoDetail</div>
       <p>{todoId}</p>
     </>
   );
 };
 
-export default Todo;
+export default TodoDetail;

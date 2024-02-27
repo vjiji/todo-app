@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
 import Layout from "./components/layout";
-import Todo from "./components/features/todo/Todo";
+import TodoDetail from "./pages/TodoDetail";
 
 const App = () => {
   return (
@@ -10,7 +10,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="todo/:id" element={<Todo />} />
+          <Route path="todo/:id" element={<TodoDetail />} />
         </Route>
       </Routes>
     </BrowserRouter>
