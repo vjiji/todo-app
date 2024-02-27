@@ -18,8 +18,8 @@ export const useRenderTodos = ({ isCompleted }) => {
     dispatch(deleteTodos(e.currentTarget.id));
   };
 
-  const handleTodoCardClick = (id) => {
-    navigate(`/todo/${id}`);
+  const handleCardDetailButtonClick = (e) => {
+    navigate(`/todo/${e.currentTarget.id}`);
   };
 
   return {
@@ -29,6 +29,6 @@ export const useRenderTodos = ({ isCompleted }) => {
     ),
     handleUpdateTodoButtonClick,
     handleDeleteTodoButtonClick,
-    handleTodoCardClick,
+    handleCardDetailButtonClick,
   };
 };

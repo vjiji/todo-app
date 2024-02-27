@@ -7,7 +7,7 @@ const RenderTodos = ({ isCompleted }) => {
     todos,
     handleUpdateTodoButtonClick,
     handleDeleteTodoButtonClick,
-    handleTodoCardClick,
+    handleCardDetailButtonClick,
   } = useRenderTodos({
     isCompleted,
   });
@@ -31,7 +31,7 @@ const RenderTodos = ({ isCompleted }) => {
             todo={todo}
             handleUpdateTodoButtonClick={handleUpdateTodoButtonClick}
             handleDeleteTodoButtonClick={handleDeleteTodoButtonClick}
-            handleTodoCardClick={handleTodoCardClick}
+            handleCardDetailButtonClick={handleCardDetailButtonClick}
           />
         ))}
       </div>
