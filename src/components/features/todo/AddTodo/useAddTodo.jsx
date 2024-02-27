@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { isNonEmptyText } from "../../../../utils/isNonEmptyText";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addTodos } from "../../../../redux/modules/todos";
+import { addIdCount } from "../../../../redux/modules/counter";
 
 export const useAddTodo = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [idCount, setIdCount] = useState(1);
+  const idCount = useSelector((state) => state.counter);
   const dispatch = useDispatch();
 
   const handleAddTodoButtonClick = () => {
@@ -17,7 +18,7 @@ export const useAddTodo = () => {
     dispatch(
       addTodos({ title, content, completed: false, id: String(idCount) })
     );
-    setIdCount(idCount + 1);
+    dispatch(addIdCount());
     setTitle("");
     setContent("");
   };
