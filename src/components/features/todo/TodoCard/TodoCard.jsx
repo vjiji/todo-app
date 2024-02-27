@@ -5,8 +5,10 @@ const TodoCard = ({
   todo,
   handleUpdateTodoButtonClick,
   handleDeleteTodoButtonClick,
+  handleCardDetailButtonClick,
 }) => {
   const { id, title, content, completed } = todo;
+
   return (
     <div className={className}>
       <p className="card-list__card-title">{title}</p>
@@ -23,6 +25,12 @@ const TodoCard = ({
           id={id}
           onClick={handleDeleteTodoButtonClick}
           text="삭제하기"
+        />
+        <ActionButton
+          className={"card-list__button--detail"}
+          id={id}
+          onClick={handleCardDetailButtonClick}
+          text="상세조회"
         />
       </div>
     </div>

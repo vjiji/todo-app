@@ -1,9 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { deleteTodos, updateTodos } from "../../../../redux/modules/todos";
+import { useNavigate } from "react-router-dom";
 
 export const useRenderTodos = ({ isCompleted }) => {
   const { todos } = useSelector((state) => state.todos);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleUpdateTodoButtonClick = (e) => {
     const targetId = e.currentTarget.id;
@@ -16,6 +18,10 @@ export const useRenderTodos = ({ isCompleted }) => {
     dispatch(deleteTodos(e.currentTarget.id));
   };
 
+  const handleCardDetailButtonClick = (e) => {
+    navigate(`/todo/${e.currentTarget.id}`);
+  };
+
   return {
     title: isCompleted ? "Done" : "Working",
     todos: todos.filter(({ completed }) =>
@@ -23,5 +29,6 @@ export const useRenderTodos = ({ isCompleted }) => {
     ),
     handleUpdateTodoButtonClick,
     handleDeleteTodoButtonClick,
+    handleCardDetailButtonClick,
   };
 };
