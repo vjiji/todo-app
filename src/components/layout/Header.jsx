@@ -1,10 +1,19 @@
+import styled from "styled-components";
+
 const Header = () => {
   return (
-    <div className="header">
+    <Container>
       <p>To Do List</p>
       <p>React</p>
-    </div>
+    </Container>
   );
 };
 
 export default Header;
+
+const Container = styled.div`
+  margin: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+`;
