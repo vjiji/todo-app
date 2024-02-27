@@ -3,9 +3,10 @@ import { isNonEmptyText } from "../../../../utils/isNonEmptyText";
 import { useDispatch } from "react-redux";
 import { addTodos } from "../../../../redux/modules/todos";
 
-export const useAddTodo = ({ todos, setTodos }) => {
+export const useAddTodo = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [idCount, setIdCount] = useState(1);
   const dispatch = useDispatch();
 
   const handleAddTodoButtonClick = () => {
@@ -13,8 +14,10 @@ export const useAddTodo = ({ todos, setTodos }) => {
       window.alert("제목과 내용을 모두 작성해주세요!");
       return;
     }
-    dispatch(addTodos({ title, content, completed: false }));
-
+    dispatch(
+      addTodos({ title, content, completed: false, id: String(idCount) })
+    );
+    setIdCount(idCount + 1);
     setTitle("");
     setContent("");
   };
