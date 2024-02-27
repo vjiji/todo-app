@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import ActionButton from "../../../common/ActionButton";
 
 const TodoCard = ({
@@ -10,10 +11,15 @@ const TodoCard = ({
   const { id, title, content, completed } = todo;
 
   return (
-    <div className={className}>
-      <p className="card-list__card-title">{title}</p>
-      <p className="card-list__card-content">{content}</p>
-      <div className="card-list__button-wrap">
+    <Container className="test">
+      <TitleBox>
+        <p className="todo-card__title">{title}</p>
+        <button id={id} onClick={handleCardDetailButtonClick}>
+          상세조회
+        </button>
+      </TitleBox>
+      <p className="todo-card__content">{content}</p>
+      <ButtonBox>
         <ActionButton
           className={`card-list__button--${completed ? "cancel" : "complete"}`}
           id={id}
@@ -26,15 +32,58 @@ const TodoCard = ({
           onClick={handleDeleteTodoButtonClick}
           text="삭제하기"
         />
-        <ActionButton
-          className={"card-list__button--detail"}
-          id={id}
-          onClick={handleCardDetailButtonClick}
-          text="상세조회"
-        />
-      </div>
-    </div>
+      </ButtonBox>
+    </Container>
   );
 };
 
 export default TodoCard;
+
+const Container = styled.div`
+  width: 240px;
+  height: 150px;
+  border: 2px solid gray;
+  border-radius: 4px;
+  padding: 0 12px;
+
+  & > p {
+    min-height: 36px;
+    font-size: 14px;
+    overflow: hidden;
+    white-space: normal;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    color: #333;
+  }
+`;
+
+const TitleBox = styled.div`
+  padding-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & > p {
+    font-size: 18px;
+    margin: 0;
+    font-weight: 600;
+  }
+
+  button {
+    background: none;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+
+    &:hover {
+      font-weight: 700;
+    }
+  }
+`;
+
+const ButtonBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;

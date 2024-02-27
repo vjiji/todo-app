@@ -1,9 +1,21 @@
+import styled from "styled-components";
+
 const ActionButton = ({ className, id, onClick, text }) => {
   return (
-    <button className={`action-button ${className}`} id={id} onClick={onClick}>
+    <ButtonStyle id={id} onClick={onClick}>
       {text}
-    </button>
+    </ButtonStyle>
   );
 };
 
 export default ActionButton;
+
+const ButtonStyle = styled.button`
+  width: 100px;
+  height: 28px;
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+`;
