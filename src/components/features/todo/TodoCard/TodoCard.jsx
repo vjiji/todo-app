@@ -11,8 +11,13 @@ const TodoCard = ({
   const { id, title, content, completed } = todo;
 
   return (
-    <Container>
-      <p className="todo-card__title">{title}</p>
+    <Container className="test">
+      <TitleBox>
+        <p className="todo-card__title">{title}</p>
+        <button id={id} onClick={handleCardDetailButtonClick}>
+          상세조회
+        </button>
+      </TitleBox>
       <p className="todo-card__content">{content}</p>
       <ButtonBox>
         <ActionButton
@@ -26,12 +31,6 @@ const TodoCard = ({
           id={id}
           onClick={handleDeleteTodoButtonClick}
           text="삭제하기"
-        />
-        <ActionButton
-          className={"card-list__button--detail"}
-          id={id}
-          onClick={handleCardDetailButtonClick}
-          text="상세조회"
         />
       </ButtonBox>
     </Container>
@@ -48,6 +47,7 @@ const Container = styled.div`
   padding: 0 12px;
 
   & > p {
+    min-height: 36px;
     font-size: 14px;
     overflow: hidden;
     white-space: normal;
@@ -57,15 +57,29 @@ const Container = styled.div`
     -webkit-box-orient: vertical;
     color: #333;
   }
+`;
 
-  .todo-card__title {
+const TitleBox = styled.div`
+  padding-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & > p {
     font-size: 18px;
+    margin: 0;
     font-weight: 600;
-    margin-bottom: 0;
   }
 
-  .todo-card__content {
-    min-height: 36px;
+  button {
+    background: none;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+
+    &:hover {
+      font-weight: 700;
+    }
   }
 `;
 
