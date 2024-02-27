@@ -2,12 +2,9 @@ import TextInput from "../../../common/TextInput";
 import ActionButton from "../../../common/ActionButton";
 import { useAddTodo } from "./useAddTodo";
 
-const AddTodo = ({ todos, setTodos }) => {
+const AddTodo = () => {
   const { title, content, setContent, setTitle, handleAddTodoButtonClick } =
-    useAddTodo({
-      todos,
-      setTodos,
-    });
+    useAddTodo();
 
   return (
     <>

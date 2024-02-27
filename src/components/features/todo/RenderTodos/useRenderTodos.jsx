@@ -16,8 +16,6 @@ export const useRenderTodos = ({ isCompleted }) => {
     dispatch(deleteTodos(e.currentTarget.id));
   };
 
-  console.log(todos, "Render component todos");
-
   return {
     title: isCompleted ? "Done" : "Working",
     todos: todos.filter(({ completed }) =>
