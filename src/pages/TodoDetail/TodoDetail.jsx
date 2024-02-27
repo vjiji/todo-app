@@ -17,9 +17,9 @@ const TodoDetail = () => {
         <Title>{todo.title}</Title>
         <p>{todo.content}</p>
       </Content>
-      <Paragragh status={todo.completed}>
+      <Paragraph $isCompleted={todo.completed}>
         {todo.completed ? "Working" : "Done"}
-      </Paragragh>
+      </Paragraph>
     </Container>
   );
 };
@@ -52,8 +52,8 @@ const Title = styled.p`
   margin-bottom: 20px;
 `;
 
-const Paragragh = styled.p`
-  color: ${({ status }) => (status ? "blue" : "red")};
+const Paragraph = styled.p`
+  color: ${({ $isCompleted }) => ($isCompleted ? "blue" : "red")};
 `;
 
 export default TodoDetail;

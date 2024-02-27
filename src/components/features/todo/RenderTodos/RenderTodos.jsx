@@ -14,15 +14,12 @@ const RenderTodos = ({ isCompleted }) => {
   });
 
   return (
-    <Container isCompleted={isCompleted}>
+    <Container $isCompleted={isCompleted}>
       <p>{title}</p>
       <CardBox>
         {todos.map((todo) => (
           <TodoCard
             key={todo.title + todo.id}
-            className={`card-list__card ${
-              isCompleted && "card-list__card--completed"
-            }`}
             todo={todo}
             handleUpdateTodoButtonClick={handleUpdateTodoButtonClick}
             handleDeleteTodoButtonClick={handleDeleteTodoButtonClick}
@@ -41,7 +38,7 @@ const Container = styled.div`
   margin: 0 10px;
 
   & > p {
-    color: ${({ isCompleted }) => (isCompleted ? "blue" : "red")};
+    color: ${({ $isCompleted }) => ($isCompleted ? "blue" : "red")};
     font-weight: 600;
   }
 `;

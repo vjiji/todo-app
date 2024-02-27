@@ -2,7 +2,6 @@ import styled from "styled-components";
 import ActionButton from "../../../common/ActionButton";
 
 const TodoCard = ({
-  className,
   todo,
   handleUpdateTodoButtonClick,
   handleDeleteTodoButtonClick,
@@ -11,14 +10,14 @@ const TodoCard = ({
   const { id, title, content, completed } = todo;
 
   return (
-    <Container className="test">
+    <Container>
       <TitleBox>
-        <p className="todo-card__title">{title}</p>
+        <p>{title}</p>
         <button id={id} onClick={handleCardDetailButtonClick}>
           상세조회
         </button>
       </TitleBox>
-      <p className="todo-card__content">{content}</p>
+      <p>{content}</p>
       <ButtonBox>
         <ActionButton
           type="update"
