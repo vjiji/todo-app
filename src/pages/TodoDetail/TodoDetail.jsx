@@ -1,22 +1,25 @@
 import { styled } from "styled-components";
 import useTodoDetail from "./useTodoDetail";
+import ActionButton from "../../components/common/ActionButton";
 
 const TodoDetail = () => {
   const { todo, handleButtonClick } = useTodoDetail();
 
   return (
     <Container>
-      <Head>
+      <TopSection>
         <p>id: {todo.id}</p>
-        <button onClick={handleButtonClick}>뒤로가기</button>
-      </Head>
+        <ActionButton type="cancel" onClick={handleButtonClick}>
+          뒤로가기
+        </ActionButton>
+      </TopSection>
       <Content>
         <Title>{todo.title}</Title>
         <p>{todo.content}</p>
       </Content>
-      <Status status={todo.completed}>
-        {todo.completed ? "완료" : "진행 중"}
-      </Status>
+      <Paragragh status={todo.completed}>
+        {todo.completed ? "Working" : "Done"}
+      </Paragragh>
     </Container>
   );
 };
@@ -33,7 +36,7 @@ const Container = styled.div`
   row-gap: 20px;
 `;
 
-const Head = styled.div`
+const TopSection = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -49,7 +52,7 @@ const Title = styled.p`
   margin-bottom: 20px;
 `;
 
-const Status = styled.p`
+const Paragragh = styled.p`
   color: ${({ status }) => (status ? "blue" : "red")};
 `;
 
