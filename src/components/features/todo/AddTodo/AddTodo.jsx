@@ -22,11 +22,9 @@ const AddTodo = () => {
           />
         </InputBox>
       </InputBoxWrap>
-      <ActionButton
-        className={"add-card__button"}
-        onClick={handleAddTodoButtonClick}
-        text="추가하기"
-      />
+      <ActionButton type="add" onClick={handleAddTodoButtonClick}>
+        추가하기
+      </ActionButton>
     </Container>
   );
 };

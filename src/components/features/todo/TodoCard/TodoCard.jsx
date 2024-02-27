@@ -21,17 +21,19 @@ const TodoCard = ({
       <p className="todo-card__content">{content}</p>
       <ButtonBox>
         <ActionButton
-          className={`card-list__button--${completed ? "cancel" : "complete"}`}
+          type="update"
           id={id}
           onClick={handleUpdateTodoButtonClick}
-          text={completed ? "취소하기" : "완료하기"}
-        />
+        >
+          {completed ? "취소하기" : "완료하기"}
+        </ActionButton>
         <ActionButton
-          className={"card-list__button--delete"}
+          type="cancel"
           id={id}
           onClick={handleDeleteTodoButtonClick}
-          text="삭제하기"
-        />
+        >
+          삭제하기
+        </ActionButton>
       </ButtonBox>
     </Container>
   );
