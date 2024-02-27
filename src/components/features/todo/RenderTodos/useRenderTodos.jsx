@@ -1,8 +1,7 @@
 import { useSelector } from "react-redux";
 
-export const useRenderTodos = ({ isCompleted, todos, setTodos }) => {
-  const test = useSelector((state) => state.todos);
-  console.log(test);
+export const useRenderTodos = ({ isCompleted, setTodos }) => {
+  const { todos } = useSelector((state) => state.todos);
 
   const handleUpdateTodoButtonClick = (e) => {
     setTodos(
@@ -21,6 +20,9 @@ export const useRenderTodos = ({ isCompleted, todos, setTodos }) => {
 
   return {
     title: isCompleted ? "Done" : "Working",
+    todos: todos.filter(({ completed }) =>
+      isCompleted ? completed : !completed
+    ),
     handleUpdateTodoButtonClick,
     handleDeleteTodoButtonClick,
   };

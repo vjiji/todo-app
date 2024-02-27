@@ -1,13 +1,16 @@
 import TodoCard from "../TodoCard";
 import { useRenderTodos } from "./useRenderTodos";
 
-const RenderTodos = ({ isCompleted, todos, setTodos }) => {
-  const { title, handleUpdateTodoButtonClick, handleDeleteTodoButtonClick } =
-    useRenderTodos({
-      isCompleted,
-      todos,
-      setTodos,
-    });
+const RenderTodos = ({ isCompleted, setTodos }) => {
+  const {
+    title,
+    todos,
+    handleUpdateTodoButtonClick,
+    handleDeleteTodoButtonClick,
+  } = useRenderTodos({
+    isCompleted,
+    setTodos,
+  });
 
   return (
     <div className="card-list">
@@ -19,19 +22,17 @@ const RenderTodos = ({ isCompleted, todos, setTodos }) => {
         {title}
       </p>
       <div className="card-list__card-wrap">
-        {todos
-          .filter(({ completed }) => (isCompleted ? completed : !completed))
-          .map((todo) => (
-            <TodoCard
-              key={todo.title + todo.id}
-              className={`card-list__card ${
-                isCompleted && "card-list__card--completed"
-              }`}
-              todo={todo}
-              handleUpdateTodoButtonClick={handleUpdateTodoButtonClick}
-              handleDeleteTodoButtonClick={handleDeleteTodoButtonClick}
-            />
-          ))}
+        {todos.map((todo) => (
+          <TodoCard
+            key={todo.title + todo.id}
+            className={`card-list__card ${
+              isCompleted && "card-list__card--completed"
+            }`}
+            todo={todo}
+            handleUpdateTodoButtonClick={handleUpdateTodoButtonClick}
+            handleDeleteTodoButtonClick={handleDeleteTodoButtonClick}
+          />
+        ))}
       </div>
     </div>
   );
