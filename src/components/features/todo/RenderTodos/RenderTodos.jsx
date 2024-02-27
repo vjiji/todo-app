@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import TodoCard from "../TodoCard";
 import { useRenderTodos } from "./useRenderTodos";
 
@@ -13,15 +14,9 @@ const RenderTodos = ({ isCompleted }) => {
   });
 
   return (
-    <div className="card-list">
-      <p
-        className={`card-list__title ${
-          isCompleted && "card-list__title--completed"
-        }`}
-      >
-        {title}
-      </p>
-      <div className="card-list__card-wrap">
+    <Container isCompleted={isCompleted}>
+      <p>{title}</p>
+      <CardBox>
         {todos.map((todo) => (
           <TodoCard
             key={todo.title + todo.id}
@@ -34,9 +29,25 @@ const RenderTodos = ({ isCompleted }) => {
             handleCardDetailButtonClick={handleCardDetailButtonClick}
           />
         ))}
-      </div>
-    </div>
+      </CardBox>
+    </Container>
   );
 };
 
 export default RenderTodos;
+
+const Container = styled.div`
+  min-height: 190px;
+  margin: 0 10px;
+
+  & > p {
+    color: ${({ isCompleted }) => (isCompleted ? "blue" : "red")};
+    font-weight: 600;
+  }
+`;
+
+const CardBox = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+`;

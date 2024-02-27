@@ -7,65 +7,6 @@
   }
 }
 
-.card-list {
-  min-height: 190px;
-  margin: 0 10px;
-}
-
-.card-list__title {
-  color: red;
-  font-weight: 600;
-}
-
-.card-list__title--completed {
-  color: blue;
-}
-
-.card-list__card-wrap {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.card-list__card {
-  width: 240px;
-  height: 150px;
-  border: 2px solid gray;
-  border-radius: 4px;
-  padding: 0 12px;
-}
-
-.card-list__card-title,
-.card-list__card-content {
-  font-size: 14px;
-  overflow: hidden;
-  white-space: normal;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  color: #333;
-}
-
-.card-list__card-title {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 0;
-}
-
-.card-list__card-content {
-  min-height: 36px;
-}
-
-.card-list__card--completed {
-  border: 2px solid gray;
-}
-
-.card-list__button-wrap {
-  display: flex;
-  justify-content: space-between;
-}
-
 .card-list__button--complete {
   border: 1px solid #00ab41;
 
