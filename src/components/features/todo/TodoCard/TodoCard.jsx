@@ -5,10 +5,12 @@ const TodoCard = ({
   todo,
   handleUpdateTodoButtonClick,
   handleDeleteTodoButtonClick,
+  handleTodoCardClick,
 }) => {
   const { id, title, content, completed } = todo;
+
   return (
-    <div className={className}>
+    <div className={className} onClick={() => handleTodoCardClick(id)}>
       <p className="card-list__card-title">{title}</p>
       <p className="card-list__card-content">{content}</p>
       <div className="card-list__button-wrap">
