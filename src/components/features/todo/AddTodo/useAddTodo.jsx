@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addTodos } from "../../../../redux/modules/todos";
 import { addIdCount } from "../../../../redux/modules/counter";
 
-export const useAddTodo = () => {
+export default function useAddTodo() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const idCount = useSelector((state) => state.counter);
@@ -23,4 +23,4 @@ export const useAddTodo = () => {
     setContent("");
   };
   return { title, content, setTitle, setContent, handleAddTodoButtonClick };
-};
+}

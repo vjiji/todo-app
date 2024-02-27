@@ -1,9 +1,9 @@
 import TextInput from "../../../common/TextInput";
 import ActionButton from "../../../common/ActionButton";
-import { useAddTodo } from "./useAddTodo";
+import useAddTodo from "./useAddTodo";
 import styled from "styled-components";
 
-const AddTodo = () => {
+export default function AddTodo() {
   const { title, content, setContent, setTitle, handleAddTodoButtonClick } =
     useAddTodo();
 
@@ -27,9 +27,7 @@ const AddTodo = () => {
       </ActionButton>
     </Container>
   );
-};
-
-export default AddTodo;
+}
 
 const Container = styled.div`
   height: 60px;

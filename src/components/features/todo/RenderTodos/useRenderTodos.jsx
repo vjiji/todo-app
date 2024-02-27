@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteTodos, updateTodos } from "../../../../redux/modules/todos";
 import { useNavigate } from "react-router-dom";
 
-export const useRenderTodos = ({ isCompleted }) => {
+export default function useRenderTodos({ isCompleted }) {
   const { todos } = useSelector((state) => state.todos);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -31,4 +31,4 @@ export const useRenderTodos = ({ isCompleted }) => {
     handleDeleteTodoButtonClick,
     handleCardDetailButtonClick,
   };
-};
+}

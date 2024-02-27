@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 
-const useTodoDetail = () => {
+export default function useTodoDetail() {
   const { todos } = useSelector((state) => state.todos);
   const currentId = useParams().id;
   const navigate = useNavigate();
@@ -12,6 +12,4 @@ const useTodoDetail = () => {
   };
 
   return { todo, handleButtonClick };
-};
-
-export default useTodoDetail;
+}

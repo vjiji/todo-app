@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import useTodoDetail from "./useTodoDetail";
 import ActionButton from "../../components/common/ActionButton";
 
-const TodoDetail = () => {
+export default function TodoDetail() {
   const { todo, handleButtonClick } = useTodoDetail();
 
   return (
@@ -22,7 +22,7 @@ const TodoDetail = () => {
       </Paragraph>
     </Container>
   );
-};
+}
 
 const Container = styled.div`
   width: 600px;
@@ -55,5 +55,3 @@ const Title = styled.p`
 const Paragraph = styled.p`
   color: ${({ $isCompleted }) => ($isCompleted ? "blue" : "red")};
 `;
-
-export default TodoDetail;

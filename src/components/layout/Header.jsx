@@ -1,15 +1,13 @@
 import styled from "styled-components";
 
-const Header = () => {
+export default function Header() {
   return (
     <Container>
       <p>To Do List</p>
       <p>React</p>
     </Container>
   );
-};
-
-export default Header;
+}
 
 const Container = styled.div`
   margin: 0 10px;

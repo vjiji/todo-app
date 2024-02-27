@@ -3,7 +3,7 @@ import Home from "./pages/Home";
 import Layout from "./components/layout";
 import TodoDetail from "./pages/TodoDetail";
 
-const App = () => {
+export default function App() {
   return (
     <BrowserRouter>
       <Routes>
@@ -14,6 +14,4 @@ const App = () => {
       </Routes>
     </BrowserRouter>
   );
-};
-
-export default App;
+}

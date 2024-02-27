@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import ActionButton from "../../../common/ActionButton";
 
-const TodoCard = ({
+export default function TodoCard({
   todo,
   handleUpdateTodoButtonClick,
   handleDeleteTodoButtonClick,
   handleCardDetailButtonClick,
-}) => {
+}) {
   const { id, title, content, completed } = todo;
 
   return (
@@ -36,9 +36,7 @@ const TodoCard = ({
       </ButtonBox>
     </Container>
   );
-};
-
-export default TodoCard;
+}
 
 const Container = styled.div`
   width: 240px;

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import TodoCard from "../TodoCard";
-import { useRenderTodos } from "./useRenderTodos";
+import useRenderTodos from "./useRenderTodos";
 
-const RenderTodos = ({ isCompleted }) => {
+export default function RenderTodos({ isCompleted }) {
   const {
     title,
     todos,
@@ -29,9 +29,7 @@ const RenderTodos = ({ isCompleted }) => {
       </CardBox>
     </Container>
   );
-};
-
-export default RenderTodos;
+}
 
 const Container = styled.div`
   min-height: 190px;

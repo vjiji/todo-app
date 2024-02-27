@@ -1,7 +1,7 @@
 import AddTodo from "../../components/features/todo/AddTodo";
 import RenderTodos from "../../components/features/todo/RenderTodos";
 
-const Home = () => {
+export default function Home() {
   return (
     <>
       <AddTodo />
@@ -10,6 +10,4 @@ const Home = () => {
       <RenderTodos isCompleted />
     </>
   );
-};
-
-export default Home;
+}

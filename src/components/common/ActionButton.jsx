@@ -1,14 +1,12 @@
 import styled from "styled-components";
 
-const ActionButton = ({ type, id, onClick, children }) => {
+export default function ActionButton({ type, id, onClick, children }) {
   return (
     <ActionButtonStyles type={type} id={id} onClick={onClick}>
       {children}
     </ActionButtonStyles>
   );
-};
-
-export default ActionButton;
+}
 
 const BaseStyles = styled.button`
   width: 100px;
