@@ -1,21 +1,26 @@
-export const useRenderTodos = ({ isCompleted, todos, setTodos }) => {
+import { useDispatch, useSelector } from "react-redux";
+import { deleteTodos, updateTodos } from "../../../../redux/modules/todos";
+
+export const useRenderTodos = ({ isCompleted }) => {
+  const { todos } = useSelector((state) => state.todos);
+  const dispatch = useDispatch();
+
   const handleUpdateTodoButtonClick = (e) => {
-    setTodos(
-      todos.map((todo) => {
-        if (todo.id === e.currentTarget.id) {
-          return { ...todo, completed: !todo.completed };
-        }
-        return todo;
-      })
-    );
+    const targetId = e.currentTarget.id;
+    const targetTodo = todos.filter(({ id }) => id === targetId)[0];
+
+    dispatch(updateTodos({ ...targetTodo, completed: !targetTodo.completed }));
   };
 
   const handleDeleteTodoButtonClick = (e) => {
-    setTodos(todos.filter(({ id }) => id !== e.currentTarget.id));
+    dispatch(deleteTodos(e.currentTarget.id));
   };
 
   return {
     title: isCompleted ? "Done" : "Working",
+    todos: todos.filter(({ completed }) =>
+      isCompleted ? completed : !completed
+    ),
     handleUpdateTodoButtonClick,
     handleDeleteTodoButtonClick,
   };

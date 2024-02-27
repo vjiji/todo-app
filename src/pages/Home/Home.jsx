@@ -1,16 +1,16 @@
 import { useState } from "react";
 import AddTodo from "../../components/features/todo/AddTodo";
 import RenderTodos from "../../components/features/todo/RenderTodos";
+import { useDispatch, useSelector } from "react-redux";
+import { addNum } from "../../redux/modules/counter";
 
 const Home = () => {
-  const [todos, setTodos] = useState([]);
-
   return (
     <>
-      <AddTodo todos={todos} setTodos={setTodos} />
+      <AddTodo />
       <hr />
-      <RenderTodos todos={todos} setTodos={setTodos} />
-      <RenderTodos isCompleted todos={todos} setTodos={setTodos} />
+      <RenderTodos />
+      <RenderTodos isCompleted />
     </>
   );
 };
