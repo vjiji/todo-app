@@ -4,20 +4,23 @@ import useRenderTodos from "./useRenderTodos";
 
 export default function RenderTodos({ isCompleted }) {
   const {
-    title,
     todos,
     handleUpdateTodoButtonClick,
     handleDeleteTodoButtonClick,
     handleCardDetailButtonClick,
-  } = useRenderTodos({
-    isCompleted,
-  });
+  } = useRenderTodos();
+
+  const title = isCompleted ? "Done" : "Working";
+
+  const filteredTodos = todos.filter(({ completed }) =>
+    isCompleted ? completed : !completed
+  );
 
   return (
     <Container $isCompleted={isCompleted}>
       <p>{title}</p>
       <CardBox>
-        {todos.map((todo) => (
+        {filteredTodos.map((todo) => (
           <TodoCard
             key={todo.title + todo.id}
             todo={todo}
