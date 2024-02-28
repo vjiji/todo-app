@@ -1,9 +1,13 @@
 import { styled } from "styled-components";
 import useTodoDetail from "./useTodoDetail";
 import ActionButton from "../../components/common/ActionButton";
+import { useParams } from "react-router-dom";
 
 export default function TodoDetail() {
-  const { todo, handleButtonClick } = useTodoDetail();
+  const { todos, handleButtonClick } = useTodoDetail();
+
+  const currentId = useParams().id;
+  const todo = todos.filter(({ id }) => id === currentId)[0];
 
   return (
     <Container>
